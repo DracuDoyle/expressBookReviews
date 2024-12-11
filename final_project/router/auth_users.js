@@ -31,7 +31,10 @@ regd_users.post( "/login", ( req, res ) => {
 	const token = jwt.sign( { username }, "fingerprint_customer", { expiresIn: "10 Minutes" } );
 	req.session.token = token;
 
-	return res.status( 200 ).json( { message: `¡Welcome, ${username}!` } );
+	return res.status( 200 ).json( { 
+		message: `¡Welcome, ${username}!`, 
+		token 
+	} );	
 
 } );
 
